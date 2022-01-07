@@ -46,6 +46,7 @@
         </div>
     </div>
 
+
     <!-- background -->
     <div class="background gradient">
         <ul class="bg-bubbles">
@@ -62,15 +63,14 @@
         </ul>
     </div>
 
-    <!--
-        Container
-    -->
+    <!-- Container-->
+
     <div class="container opened" data-animation-in="fadeInLeft" data-animation-out="fadeOutLeft">
 
         <!--menu-->
-@include('layouts.site.menu')
+    @include('layouts.site.menu')
 
-        <!--Card - Started-->
+    <!--Card - Started-->
         <div class="card-started" id="home-card">
 
             <!--Profile-->
@@ -111,7 +111,7 @@
             </div>
         </div>
 
-@yield('content')
+        @yield('content')
 
     </div>
 </div>

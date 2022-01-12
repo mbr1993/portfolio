@@ -13,15 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['prefix' => 'admin'], __DIR__.'./admin.php');
+
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/admin', function () {
-    return view('admin.index');
-});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';

@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('images/favicon.ico') }}">
 
-    <title>Easy School Management System</title>
+    <title>Admin dashboard</title>
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="{{ asset('css/vendors_css.css') }}">
@@ -17,33 +17,31 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/skin_color.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+{{--    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">--}}
+
 
 </head>
 
 <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
 
 <div class="wrapper">
-
     <!-- Header  -->
-@include('admin.body.headerh')
+    @include('admin.body.headerh')
 
+    @include('admin.body.sidebar')
 
-<!--sidebar -->
-@include('admin.body.sidebar')
+    <div class="content-wrapper">
+        <div class="container-full">
 
+            @yield('admin')
 
-<!-- Content -->
-@yield('admin')
+        </div>
+    </div>
 
-<!-- Footer -->
     @include('admin.body.footer')
 
-
-    <div class="control-sidebar-bg"></div>
-
 </div>
-<!-- ./wrapper -->
 
 
 <!-- Vendor JS -->
@@ -54,12 +52,13 @@
 <script src="{{ asset('assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
 
 <script src="{{ asset('assets/vendor_components/datatable/datatables.min.js') }}"></script>
-<script src="{{ asset('js/pages/data-table.js') }}"></script>
+{{--<script src="{{ asset('js/pages/data-table.js') }}"></script>--}}
 <!-- Sunny Admin App -->
 <script src="{{ asset('js/template.js') }}"></script>
 <script src="{{ asset('js/pages/dashboard.js') }}"></script>
 
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{--<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>--}}
 <script type="text/javascript">
     $(function () {
         $(document).on('click', '#delete', function (e) {
@@ -70,8 +69,8 @@
                 text: "Delete This Data!",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
+                confirmButtonColor: '#fe0116',
+                cancelButtonColor: '#23a637',
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -85,8 +84,6 @@
             })
         });
     });
-
-
 </script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>

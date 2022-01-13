@@ -7,7 +7,7 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <h4 class="box-title">Blog tips</h4>
-                        <a href="{{route('admin.blogTips.create')}}" type="button"
+                        <a href="{{route('admin.workTips.create')}}" type="button"
                            class="float-right btn btn-info mb-5">Add</a>
                     </div>
                     <!-- /.box-header -->
@@ -26,9 +26,9 @@
                                         <td>{{$tip->id}}</td>
                                         <td>{{$tip->name}}</td>
                                         <td>{{$tip->created_at->format('Y-m-d')}}</td>
-                                        <td><a href="{{route('admin.blogTips.edit',['tip' => $tip->id])}}"
+                                        <td><a href="{{route('admin.workTips.edit',['tip' => $tip->id])}}"
                                                class="btn btn-success">Edit</a>
-                                            <a href="{{ route('admin.blogTips.delete', ['tip' => $tip->id]) }}"
+                                            <a href="{{ route('admin.workTips.delete', ['tip' => $tip->id]) }}"
                                                class="btn btn-danger" id="delete">Delete</a>
                                         </td>
                                     </tr>
@@ -43,4 +43,5 @@
             </div>
         </div>
     </section>
+
 @endsection

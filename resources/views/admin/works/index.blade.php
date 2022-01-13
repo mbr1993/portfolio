@@ -6,8 +6,8 @@
             <div class="col-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">Blog tips</h4>
-                        <a href="{{route('admin.blogTips.create')}}" type="button"
+                        <h4 class="box-title">Works</h4>
+                        <a href="{{route('admin.works.create')}}" type="button"
                            class="float-right btn btn-info mb-5">Add</a>
                     </div>
                     <!-- /.box-header -->
@@ -17,24 +17,32 @@
                                 <tbody>
                                 <tr>
                                     <th>#Id</th>
+                                    <th>Tip</th>
                                     <th>Name</th>
+                                    <th>Image</th>
                                     <th>Date</th>
                                     <th>Actions</th>
                                 </tr>
-                                @foreach($tips as $tip)
+                                @foreach($works as $work)
                                     <tr>
-                                        <td>{{$tip->id}}</td>
-                                        <td>{{$tip->name}}</td>
-                                        <td>{{$tip->created_at->format('Y-m-d')}}</td>
-                                        <td><a href="{{route('admin.blogTips.edit',['tip' => $tip->id])}}"
+                                        <td>{{$work->id}}</td>
+                                        <td>{{$work->workTip->name}}</td>
+                                        <td>{{$work->name}}</td>
+                                        <td>
+                                            <img src="{{ asset(\Illuminate\Support\Facades\Storage::url($work->image))}}"
+                                                 alt="" width="70" height="70">
+                                        </td>
+                                        <td>{{$work->created_at->format('Y-m-d')}}</td>
+                                        <td><a href="{{ route('admin.works.edit',['work' => $work->id])}}"
                                                class="btn btn-success">Edit</a>
-                                            <a href="{{ route('admin.blogTips.delete', ['tip' => $tip->id]) }}"
+                                            <a href="{{ route('admin.works.delete', ['work' => $work->id]) }}"
                                                class="btn btn-danger" id="delete">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
+                            {{ $works->links() }}
                         </div>
                     </div>
                     <!-- /.box-body -->

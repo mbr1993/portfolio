@@ -11,11 +11,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property Work[] $works
  */
-class Work_tip extends Model
+class WorkTip extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';

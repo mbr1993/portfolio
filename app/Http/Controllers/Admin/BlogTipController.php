@@ -11,7 +11,6 @@ class BlogTipController extends Controller
     public function index()
     {
         $tips = BlogTip::query()->paginate();
-
         return view('admin.blog-tips.index', ['tips' => $tips]);
     }
 
@@ -36,12 +35,9 @@ class BlogTipController extends Controller
         if ($tip->save()) {
             return redirect()->route('admin.blogTips.index')->with($notification);
         }
-
 //        if (BlogTip::query()->create($data)){
 //            return redirect()->route('admin.blogTips.index');
 //        }
-
-
         return back()->withErrors($data);
     }
 

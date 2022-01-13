@@ -71,7 +71,8 @@
                 showCancelButton: true,
                 confirmButtonColor: '#fe0116',
                 cancelButtonColor: '#23a637',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Yes, delete it!',
+                method: "delete"
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = link

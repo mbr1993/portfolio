@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BlogTipController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\Admin\WorkTipController;
 use Illuminate\Support\Facades\Route;
@@ -55,7 +56,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/edit/{work}', [WorkController::class, 'edit'])->name('admin.works.edit');
         Route::post('/edit/{work}', [WorkController::class, 'update'])->name('admin.works.update');
         Route::get('/delete/{work}', [WorkController::class, 'delete'])->name('admin.works.delete');
+    });
 
+    Route::group(['prefix' => 'profile'], function () {
+        Route::get('', [ProfileController::class, 'index'])->name('admin.profile.index');
+        Route::get('edit/{profile}', [ProfileController::class, 'edit'])->name('admin.profile.edit');
+        Route::post('update/{profile}', [ProfileController::class, 'update'])->name('admin.profile.update');
     });
 
 });

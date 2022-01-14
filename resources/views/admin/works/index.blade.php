@@ -30,7 +30,7 @@
                                         <td>{{$work->name}}</td>
                                         <td>
                                             <img src="{{ asset(\Illuminate\Support\Facades\Storage::url($work->image))}}"
-                                                 alt="" width="70" height="70">
+                                                 alt="" width="100" height="70">
                                         </td>
                                         <td>{{$work->created_at->format('Y-m-d')}}</td>
                                         <td><a href="{{ route('admin.works.edit',['work' => $work->id])}}"

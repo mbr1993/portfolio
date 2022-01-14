@@ -38,25 +38,6 @@
 
                                             <div class="help-block"></div>
                                         </div>
-                                        @error('blog_tip_id')
-                                        <div class="form-control-feedback">
-                                            {{$error}}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <h5>Date <span class="text-danger">*</span></h5>
-                                        <div class="controls">
-                                            <input type="date" name="date" class="form-control">
-                                            <div class="help-block"></div>
-                                        </div>
-                                        @error('date')
-                                        <div class="form-control-feedback">
-                                            {{$error}}
-                                        </div>
-                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12">

@@ -30,10 +30,8 @@
                                         <td>{{$blog->title}}</td>
                                         <td>
                                             <img src="{{asset(\Illuminate\Support\Facades\Storage::url($blog->photo))}}"
-                                                 alt="" width="70" height="70">
+                                                 alt="" width="120" height="70">
                                         </td>
-                                        {{--                                        <td><img src="{{$blog->photo}}"--}}
-                                        {{--                                                 alt="" width="70" height="70"></td>--}}
                                         <td>{{$blog->created_at->format('Y-m-d')}}</td>
                                         <td><a href="{{route('admin.blogs.edit',['blog' => $blog->id])}}"
                                                class="btn btn-success">Edit</a>

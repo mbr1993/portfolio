@@ -23,11 +23,20 @@
         <!-- sidebar menu-->
         <ul class="sidebar-menu" data-widget="tree">
 
+
+
             <li class="treevuew {{ ($route == 'admin')?'active':'' }}
             {{ ($route == 'admin.dashboard')?'active':'' }}">
                 <a href="{{route('admin.dashboard')}}">
                     <i data-feather="pie-chart"></i>
                     <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="{{ ($route == 'admin.profile.index')?'active':'' }}"> <!---->
+                <a href="{{ route('admin.profile.index') }}">
+                    <i data-feather="message-circle"></i>
+                    <span>Profile</span>
                 </a>
             </li>
 
@@ -60,6 +69,7 @@
                     <li><a href="{{ route('admin.works.index') }}"><i class="ti-more"></i>Works</a></li>
                 </ul>
             </li>
+
         </ul>
     </section>
 </aside>

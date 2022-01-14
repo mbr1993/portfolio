@@ -54,6 +54,11 @@ class WorkController extends Controller
             'image' => 'nullable|image'
         ]);
 
+        $notification = [
+            'message' => 'User Profile has been successfully updated',
+            'alert-type' => 'success'
+        ];
+
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('works', 'public');
             $temp = $work->image;
@@ -62,7 +67,7 @@ class WorkController extends Controller
             if (isset($temp)) {
                 Storage::disk('public')->delete($temp);
             }
-            return redirect()->route('admin.works.index');
+            return redirect()->route('admin.works.index')->with($notification);
         }
         return back()->withErrors($data);
     }

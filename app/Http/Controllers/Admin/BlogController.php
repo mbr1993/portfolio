@@ -58,6 +58,12 @@ class BlogController extends Controller
             'date' => 'required|date_format:Y-m-d',
             'image' => 'nullable|image'
         ]);
+
+        $notification = [
+            'message' => 'User Profile has been successfully updated',
+            'alert-type' => 'info'
+        ];
+
         if ($request->hasFile('image')) {
             $data['photo'] = $request->file('image')->store('blogs', 'public');
             $temp = $blog->photo;
@@ -67,7 +73,7 @@ class BlogController extends Controller
             if (isset($temp)) {
                 Storage::disk('public')->delete($temp);
             }
-            return redirect()->route('admin.blogs.index');
+            return redirect()->route('admin.blogs.index')->with($notification);
         }
         return back()->withErrors($data);
     }

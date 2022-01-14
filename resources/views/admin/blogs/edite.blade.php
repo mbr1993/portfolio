@@ -2,7 +2,7 @@
 
 @section('admin')
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
     <section class="content">
         <div class="box">
@@ -41,11 +41,11 @@
 
                                             <div class="help-block"></div>
                                         </div>
-                                        @error('blog_tip_id')
-                                        <div class="form-control-feedback">
-                                            {{$error}}
-                                        </div>
-                                        @enderror
+{{--                                        @error('blog_tip_id')--}}
+{{--                                        <div class="form-control-feedback">--}}
+{{--                                            {{$error}}--}}
+{{--                                        </div>--}}
+{{--                                        @enderror--}}
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -55,11 +55,11 @@
                                             <input type="date" name="date" class="form-control" value="{{$blog->date}}">
                                             <div class="help-block"></div>
                                         </div>
-                                        @error('date')
-                                        <div class="form-control-feedback">
-                                            {{$error}}
-                                        </div>
-                                        @enderror
+{{--                                        @error('date')--}}
+{{--                                        <div class="form-control-feedback">--}}
+{{--                                            {{$error}}--}}
+{{--                                        </div>--}}
+{{--                                        @enderror--}}
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -70,11 +70,11 @@
                                                    value="{{$blog->title}}">
                                             <div class="help-block"></div>
                                         </div>
-                                        @error('name')
-                                        <div class="form-control-feedback">
-                                            {{$error}}
-                                        </div>
-                                        @enderror
+{{--                                        @error('name')--}}
+{{--                                        <div class="form-control-feedback">--}}
+{{--                                            {{$error}}--}}
+{{--                                        </div>--}}
+{{--                                        @enderror--}}
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -84,11 +84,11 @@
                                             <textarea name="content" class="form-control" rows="3"
                                                       placeholder="">{{$blog->content}}</textarea>
                                         </div>
-                                        @error('content')
-                                        <div class="form-control-feedback">
-                                            {{$error}}
-                                        </div>
-                                        @enderror
+{{--                                        @error('content')--}}
+{{--                                        <div class="form-control-feedback">--}}
+{{--                                            {{$error}}--}}
+{{--                                        </div>--}}
+{{--                                        @enderror--}}
                                     </div>
                                 </div>
 
@@ -99,11 +99,11 @@
                                             <input type="file" name="image" class="form-control" id="image">
                                             <div class="help-block"></div>
                                         </div>
-                                        @error('image')
-                                        <div class="form-control-feedback">
-                                            {{$error}}
-                                        </div>
-                                        @enderror
+{{--                                        @error('image')--}}
+{{--                                        <div class="form-control-feedback">--}}
+{{--                                            {{$error}}--}}
+{{--                                        </div>--}}
+{{--                                        @enderror--}}
                                     </div>
                                 </div>
 
@@ -130,6 +130,7 @@
         </div>
     </section>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#image').change(function (e) {

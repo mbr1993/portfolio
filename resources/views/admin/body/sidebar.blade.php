@@ -24,7 +24,6 @@
         <ul class="sidebar-menu" data-widget="tree">
 
 
-
             <li class="treevuew {{ ($route == 'admin')?'active':'' }}
             {{ ($route == 'admin.dashboard')?'active':'' }}">
                 <a href="{{route('admin.dashboard')}}">
@@ -38,6 +37,27 @@
                     <i data-feather="message-circle"></i>
                     <span>Profile</span>
                 </a>
+            </li>
+
+            <li class="{{ ($route == 'admin.service.index')?'active':'' }}"> <!---->
+                <a href="{{ route('admin.service.index') }}">
+                    <i data-feather="message-circle"></i>
+                    <span>Services</span>
+                </a>
+            </li>
+
+            <li class="treeview {{ ($route == 'admin.price.index')?'active':'' }}">
+                <a href="javascript:void(0)">
+                    <i data-feather="message-circle"></i>
+                    <span>Prices</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('admin.price.index') }}"><i class="ti-more">Price Tip</i></a></li>
+                    <li><a href="{{ route('admin.priceItem.index') }}"><i class="ti-more">Prices</i></a></li>
+                </ul>
             </li>
 
             <li class="treeview {{ ($route == 'admin.blogTips.index')?'active':'' }}

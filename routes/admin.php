@@ -4,7 +4,10 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BlogTipController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PriceController;
+use App\Http\Controllers\Admin\PriceItemController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\Admin\WorkTipController;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +66,31 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('edit/{profile}', [ProfileController::class, 'edit'])->name('admin.profile.edit');
         Route::post('update/{profile}', [ProfileController::class, 'update'])->name('admin.profile.update');
     });
+
+    Route::group(['prefix' => 'service'], function () {
+        Route::get('', [ServiceController::class, 'index'])->name('admin.service.index');
+        Route::get('/create', [ServiceController::class, 'create'])->name('admin.service.create');
+        Route::post('/store', [ServiceController::class, 'store'])->name('admin.service.store');
+        Route::get('/edit/{service}', [ServiceController::class, 'edit'])->name('admin.service.edit');
+        Route::post('/update/{service}', [ServiceController::class, 'update'])->name('admin.service.update');
+        Route::get('/delete/{service}', [ServiceController::class, 'delete'])->name('admin.service.delete');
+    });
+
+    Route::prefix('price')->group(function () {
+        Route::get('', [PriceController::class, 'index'])->name('admin.price.index');
+        Route::get('/create', [PriceController::class, 'create'])->name('admin.price.create');
+        Route::post('/store', [PriceController::class, 'store'])->name('admin.price.store');
+        Route::get('edit/{price}', [PriceController::class, 'edit'])->name('admin.price.edit');
+        Route::post('update/{price}', [PriceController::class, 'update'])->name('admin.price.update');
+        Route::get('delete/{price}', [PriceController::class, 'delete'])->name('admin.price.delete');
+    });
+
+    Route::prefix('price-item')->group(function () {
+        Route::get('', [PriceItemController::class, 'index'])->name('admin.priceItem.index');
+        Route::get('create', [PriceItemController::class, 'create'])->name('admin.priceItem.create');
+        Route::post('store', [PriceItemController::class, 'store'])->name('admin.priceItem.store');
+    });
+
 
 });
 

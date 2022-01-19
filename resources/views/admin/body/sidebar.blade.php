@@ -46,7 +46,15 @@
                 </a>
             </li>
 
-            <li class="treeview {{ ($route == 'admin.price.index')?'active':'' }}">
+            <li class="{{ ($route == 'admin.facts.index')?'active':'' }}"> <!---->
+                <a href="{{ route('admin.facts.index') }}">
+                    <i data-feather="message-circle"></i>
+                    <span>Fun Facts</span>
+                </a>
+            </li>
+
+            <li class="treeview {{ ($route == 'admin.price.index')?'active':'' }}
+            {{ ($route == 'admin.priceItem.index')?'active':'' }}">
                 <a href="javascript:void(0)">
                     <i data-feather="message-circle"></i>
                     <span>Prices</span>
@@ -55,8 +63,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('admin.price.index') }}"><i class="ti-more">Price Tip</i></a></li>
-                    <li><a href="{{ route('admin.priceItem.index') }}"><i class="ti-more">Prices</i></a></li>
+                    <li><a href="{{ route('admin.price.index') }}"><i class="ti-more"></i>Prices</a></li>
+                    <li><a href="{{ route('admin.priceItem.index') }}"><i class="ti-more"></i>Price Item</a></li>
                 </ul>
             </li>
 

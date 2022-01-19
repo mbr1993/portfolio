@@ -6,8 +6,8 @@
             <div class="col-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">Price</h4>
-                        <a href="{{route('admin.price.create')}}" type="button"
+                        <h4 class="box-title">Fun Facts</h4>
+                        <a href="{{route('admin.facts.create')}}" type="button"
                            class="float-right btn btn-info mb-5">Add</a>
                     </div>
                     <!-- /.box-header -->
@@ -17,27 +17,30 @@
                                 <tbody>
                                 <tr>
                                     <th>#Id</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
+                                    <th>Title</th>
+                                    <th>Image</th>
                                     <th>Date</th>
                                     <th>Actions</th>
                                 </tr>
-                                @foreach($prices as $price)
+                                @foreach($facts as $fact)
                                     <tr>
-                                        <td>{{$price->id}}</td>
-                                        <td>{{$price->name}}</td>
-                                        <td>$ {{$price->price}}</td>
-                                        <td>{{$price->created_at->format('Y-m-d')}}</td>
-                                        <td><a href="{{route('admin.price.edit',['price' => $price->id])}}"
-                                               class="btn btn-info">Edit</a>
-                                            <a href="{{ route('admin.price.delete', ['price' => $price->id]) }}"
+                                        <td>{{$fact->id}}</td>
+                                        <td>{{$fact->title}}</td>
+                                        <td>
+                                            <img src="{{asset(\Illuminate\Support\Facades\Storage::url($fact->icon))}}"
+                                                 alt="" width="100" height="70">
+                                        </td>
+                                        <td>{{$fact->created_at->format('Y-m-d')}}</td>
+                                        <td><a href="{{route('admin.facts.edit',['fact' => $fact->id])}}"
+                                               class="btn btn-success">Edit</a>
+                                            <a href="{{ route('admin.facts.delete', ['fact' => $fact->id]) }}"
                                                class="btn btn-danger" id="delete">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                            {{ $prices->links() }}
+                            {{ $facts->links() }}
                         </div>
                     </div>
                     <!-- /.box-body -->

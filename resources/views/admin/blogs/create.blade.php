@@ -12,15 +12,6 @@
                 <div class="row">
                     <div class="col">
 
-                        @if( count($errors) > 0)
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{$error}}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
                         <form method="post" action="{{route('admin.blogs.store')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
@@ -29,17 +20,18 @@
                                         <h5>Tip <span class="text-danger">*</span></h5>
                                         <div class="controls">
 
-                                                <select name="blog_tip_id" class="form-control">
-                                                    @foreach($tips as $tip)
-                                                        <option value="{{$tip->id}}">{{$tip->name}}</option>
-                                                    @endforeach
-                                                </select>
+                                            <select name="blog_tip_id"
+                                                    class="form-control @error('blog_tip_id') is-invalid @enderror">
+                                                @foreach($tips as $tip)
+                                                    <option value="{{$tip->id}}">{{$tip->name}}</option>
+                                                @endforeach
+                                            </select>
 
                                             <div class="help-block"></div>
                                         </div>
                                         @error('blog_tip_id')
-                                        <div class="form-control-feedback">
-                                            {{$error}}
+                                        <div class="alert alert-default-danger">
+                                            {{$message}}
                                         </div>
                                         @enderror
                                     </div>
@@ -48,12 +40,13 @@
                                     <div class="form-group">
                                         <h5>Date <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="date" name="date" class="form-control">
+                                            <input type="date" name="date"
+                                                   class="form-control @error('date') is-invalid @enderror">
                                             <div class="help-block"></div>
                                         </div>
                                         @error('date')
-                                        <div class="form-control-feedback">
-                                            {{$error}}
+                                        <div class="alert alert-default-danger">
+                                            {{$message}}
                                         </div>
                                         @enderror
                                     </div>
@@ -62,11 +55,12 @@
                                     <div class="form-group">
                                         <h5>Title <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="text" name="title" class="form-control">
+                                            <input type="text" name="title"
+                                                   class="form-control @error('title') is-invalid @enderror">
                                         </div>
-                                        @error('name')
-                                        <div class="form-control-feedback">
-                                            {{$error}}
+                                        @error('title')
+                                        <div class="alert alert-default-danger">
+                                            {{$message}}
                                         </div>
                                         @enderror
                                     </div>
@@ -75,11 +69,14 @@
                                     <div class="form-group">
                                         <h5>Content <span class="text-danger">*</span></h5>
                                         <div class="form-group">
-                                            <textarea name="content" class="form-control" rows="3" placeholder=""></textarea>
+                                            <textarea name="content"
+                                                      class="form-control @error('content') is-invalid @enderror"
+                                                      rows="3"
+                                                      placeholder=""></textarea>
                                         </div>
                                         @error('content')
-                                        <div class="form-control-feedback">
-                                            {{$error}}
+                                        <div class="alert alert-default-danger">
+                                            {{$message}}
                                         </div>
                                         @enderror
                                     </div>
@@ -89,19 +86,20 @@
                                     <div class="form-group">
                                         <h5>Image <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="file" name="image" class="form-control">
+                                            <input type="file" name="image"
+                                                   class="form-control @error('image') is-invalid @enderror">
                                             <div class="help-block"></div>
                                         </div>
                                         @error('image')
-                                        <div class="form-control-feedback">
-                                            {{$error}}
+                                        <div class="alert alert-default-danger">
+                                            {{$message}}
                                         </div>
                                         @enderror
                                     </div>
                                 </div>
                             </div>
                             <div class="text-xs-right">
-                                <button type="submit" class="btn btn-rounded btn-info">Submit</button>
+                                <button type="submit" class="btn btn-rounded btn-info">Create</button>
                             </div>
                         </form>
 

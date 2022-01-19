@@ -33,8 +33,10 @@
                                         <td>{{ $item->is_include}}</td>
                                         <td>{{ $item->created_at->format('Y-m-d')}}</td>
                                         <td>
-                                            <a href="" class="btn btn-info">Edit</a>
-                                            <a href="" class="btn btn-danger">Delete</a>
+                                            <a href="{{ route('admin.priceItem.edit',$item->id) }}"
+                                               class="btn btn-info">Edit</a>
+                                            <a href="{{ route('admin.priceItem.delete',['item'=>$item->id]) }}"
+                                               id="delete" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

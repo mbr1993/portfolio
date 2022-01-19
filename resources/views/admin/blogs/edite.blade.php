@@ -99,11 +99,7 @@
                                             <input type="file" name="image" class="form-control" id="image">
                                             <div class="help-block"></div>
                                         </div>
-{{--                                        @error('image')--}}
-{{--                                        <div class="form-control-feedback">--}}
-{{--                                            {{$error}}--}}
-{{--                                        </div>--}}
-{{--                                        @enderror--}}
+{{--
                                     </div>
                                 </div>
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BlogTipController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FactController;
 use App\Http\Controllers\Admin\PriceController;
 use App\Http\Controllers\Admin\PriceItemController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -89,6 +90,18 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('', [PriceItemController::class, 'index'])->name('admin.priceItem.index');
         Route::get('create', [PriceItemController::class, 'create'])->name('admin.priceItem.create');
         Route::post('store', [PriceItemController::class, 'store'])->name('admin.priceItem.store');
+        Route::get('edit/{item}', [PriceItemController::class, 'edit'])->name('admin.priceItem.edit');
+        Route::put('update/{item}', [PriceItemController::class, 'update'])->name('admin.priceItem.update');
+        Route::get('delete/{item}', [PriceItemController::class, 'delete'])->name('admin.priceItem.delete');
+    });
+
+    Route::prefix('facts')->group(function () {
+        Route::get('', [FactController::class, 'index'])->name('admin.facts.index');
+        Route::get('create', [FactController::class, 'create'])->name('admin.facts.create');
+        Route::post('store', [FactController::class, 'store'])->name('admin.facts.store');
+        Route::get('edit/{fact}', [FactController::class, 'edit'])->name('admin.facts.edit');
+        Route::put('update/{fact}', [FactController::class, 'update'])->name('admin.facts.update');
+        Route::get('delete/{fact}', [FactController::class, 'delete'])->name('admin.facts.delete');
     });
 
 

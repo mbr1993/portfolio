@@ -18,11 +18,6 @@ class PriceItemController extends Controller
     public function create()
     {
         $prices = Price::query()->get();
-//
-//        $list= [
-//            ['value' => 1, 'name'=>'Include'],
-//            ['value' => 0, 'name'=>'Not Include'],
-//        ];
         return view('admin.price-items.create', ['prices' => $prices]);
     }
 
@@ -31,7 +26,7 @@ class PriceItemController extends Controller
         $data = $request->validate([
             'price_id' => 'required',
             'is_include' => 'required|integer',
-            'name' => 'required|unique:price_items|string|max:255'
+            'name' => 'required|unique:price_items,name|string|max:255'
         ]);
 
         $notification = [
@@ -45,5 +40,41 @@ class PriceItemController extends Controller
             return redirect()->route('admin.priceItem.index')->with($notification);
         }
         return back()->withErrors($data);
+    }
+
+    public function edit(PriceItem $item)
+    {
+        $prices = Price::query()->get();
+        return view('admin.price-items.edit', compact('prices', 'item'));
+    }
+
+    public function update(Request $request, PriceItem $item)
+    {
+        $data = $request->validate([
+            'price_id' => 'required|exists:prices,id',
+            'is_include' => 'required|integer',
+            'name' => 'required|string|max:255|unique:price_items,name,' . $item->id
+        ]);
+
+        $notification = [
+            'message' => 'The Price Item has been successfully updated!',
+            'alert-type' => 'success'];
+        if ($item->update($data)) {
+            return redirect()->route('admin.priceItem.index')->with($notification);
+        }
+        return back()->withErrors($data);
+    }
+
+    public function delete(PriceItem $item)
+    {
+        $notification = [
+            'message' => 'Price Item has been successfully deleted!',
+            'alert-type' => 'success'
+        ];
+
+        if ($item->delete()) {
+            return back()->with($notification);
+        }
+        return back();
     }
 }
